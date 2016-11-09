@@ -5,8 +5,13 @@ const app = express();
 app.use(cors());
 app.get('/', (req, res) => {
   res.json({
-    hello: 'JS World',
+    hello: 'JS ! World',
   });
+});
+
+app.get('/task2A', (req, res) => {
+  const sum = (+req.query.a || 0) + (+req.query.b || 0);
+  res.send(sum.toString());
 });
 
 app.listen(3000, () => {

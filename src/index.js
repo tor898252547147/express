@@ -33,13 +33,16 @@ if (kolslov == 1) {
 if (str == '') {
 	otvet = 'Invalid fullname'
 };
-
+if(!str.match("^[^0-9_/]*$")){
+	otvet = ("Invalid fullname");
+}
 
   res.send(otvet);
 
 });
 
 
+	
 app.listen(3000, () => {
   console.log('Your app listening on port 3000!');
 });

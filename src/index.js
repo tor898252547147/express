@@ -33,6 +33,7 @@ if (kolslov == 1) {
 if (str == '') {
 	otvet = 'Invalid fullname'
 };
+
 if(!str.match("^[^0-9_/]*$")){
 	otvet = ("Invalid fullname");
 }
@@ -41,7 +42,12 @@ if(!str.match("^[^0-9_/]*$")){
 
 });
 
-
+app.get('/task2C', (req, res) => {
+const url = req.query.username;
+const re = new RegExp('@?(https?:)?(\/\/)?((www|twitter|github|telegram|vk|vkontakte)[^\/]*\/)?([a-zA-Z0-9]*)', 'i');
+const usr = url.match(re);
+res.send('@' + usr[5]);
+});
 	
 app.listen(3000, () => {
   console.log('Your app listening on port 3000!');
